@@ -1,0 +1,542 @@
+:root {
+--boxColor: #00ffff31;
+--bouncespeed: 3s;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+body {
+  display: grid;
+  grid-template-columns: repeat(11, 9vw);
+  grid-template-rows: repeat(10, 10vh) ;
+  background-image: repeating-linear-gradient(60deg, #000 0px, #222 2px, #000 4px);
+}
+
+/* -------------------------- LOGO styling START ------------------- */
+nav {
+  grid-column: 2 / 12;
+  grid-row: 2;
+}
+
+h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 4rem;
+  background: -webkit-linear-gradient(#d1913c, #ffd194);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: .5;
+}
+
+h1 span {
+  font-size: 4rem;
+}
+
+h1 span::before {
+  content: '';
+  animation: text 8s step-end infinite;
+}
+
+@keyframes text {
+  0%  { content: ''; }
+  9% { content: 'p'; }
+  18% { content: 'pe'; }
+  27% { content: 'pet'; }
+  36% { content: 'pete'; }
+  74% { content: 'pet'; }
+  82% { content: 'pe'; }
+  91% { content: 'p'; }
+  100% { content: ''; }
+}
+
+h1 span::after {
+  content: '';
+  display: inline-block;
+  width: 0.1em; 
+  height: 0.75em;
+  margin-left: 0.1em;
+  background-color: #969696;
+  animation: blink 0.75s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0%, 25%, 100% { opacity: 1; }
+  50%, 75% { opacity: 0; }
+}
+
+/* ----------------------------LOGO styling END ------------------- */
+
+/* --------------------- SWITCH styling START --------------------- */
+
+.switch {
+  margin-bottom: 1vh;
+  grid-column: 6;
+  grid-row: 9;
+  transform: translate(-50%, -50%);
+  width: 5rem;
+  height: 2.5rem;
+  -webkit-appearance: none;
+  background: red;
+  outline: none;
+  border-radius: .5rem;
+  transition: 1s;
+  opacity: .2;
+}
+
+.switch:focus,
+.switch:hover {
+  cursor: pointer;
+}
+
+.switch:checked {
+  background: #00ff6c;
+  box-shadow: 
+  0 0 15px #00ff6c;
+  opacity: 1;
+}
+
+.switch::after {
+  content: '';
+  position: absolute;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: .5rem;
+  background: #f4f4f4;
+  transform: scale(.8);
+  box-shadow: 0 2px 5px rgba(0, 0, .2);
+  transition: .5s;
+  opacity: 1;
+}
+
+.switch:checked::after {
+  transform: translateX(2.5rem) scale(.8);
+}
+/* ------------------------ SWITCH styling END ------------------ */
+
+/* ------------------- LIGHTSWITCH napis START ------------------ */
+.switch::before {
+  content: 'DESERT STYLE';
+  position: absolute;
+  top: 2em;
+  left: 1.25em;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  font-family: 'Orbitron', sans-serif;
+  color: red;
+  padding: .2em .5em;
+  transition: 1s;
+  text-align: center;
+}
+
+.switch:checked::before {
+  color: #00ff6c;
+  box-shadow: 0 0 50px 5px #fff5 inset;
+  border-radius: 30px;
+  transition: 1s;
+}
+/* ------------------ LIGHTSWITCH napis END -------------------- */
+
+/* ------------------- LIGHTNING top START --------------------- */
+label {
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: #e3c1791a;
+  ;
+  transition: 1s;
+}
+
+.switch:checked + label {
+  background: rgb(227, 193, 121);
+  box-shadow: 
+    0 0 20px 12px rgb(227, 193, 121),
+    0 0 40px rgb(227, 193, 121),
+    0 0 80px rgb(227, 193, 121),
+    0 0 200px 1000px rgba(227, 193, 121, .55);
+  transition: 1.3s;
+}
+/* ------------------- LIGHTNING top END ----------------------- */
+
+/* ---------------- LIGHTNING above crystal START -------------- */
+
+/* label::before {
+  content: '';
+  position: absolute; 
+  top: 27vh;
+  left: 10vw;
+  height: .5rem;
+  width: 10vw;
+  border-radius: 5px;
+  background: #44444403;
+  transition: 1s;
+  transition-delay: .9s;
+}
+
+.switch:checked + label::before {
+  background: #03e9f4;
+  box-shadow: 
+    0 0 5px 2px #03e9f4,
+    0 0 120px 5px #03e9f4,
+    0 100px 100px 20px #03e9f4,
+    0 250px 250px 100px #03e9f4,
+    0 200px 100px 50px #03e9f4;
+  transition: 1s;
+  transition-delay: .9s;
+} */
+
+/* ----------------LIGHTNING above crystal END ------- */
+
+
+/* ---------------------- MENU STYLING ------------------------ */
+
+menu {
+  grid-column: 10;
+  grid-row: 5;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-evenly;
+}
+
+.menuLinks {
+  list-style-type: none;
+}
+
+.menuLinks li {
+  font-size: 3rem;
+  margin-top: 1.5em;
+  font-family: 'Chakra Petch', sans-serif;
+}
+
+.menuLinks li a {
+  position: relative;
+  color: #ffffffa3;
+  text-transform: uppercase;
+  transition: .5s;
+  transition-delay: .2s;
+}
+
+.menuLinks li a:focus,
+.menuLinks li a:hover {
+  color: #03e9f4;
+  text-shadow:
+      0 0 15px #03e9f4,
+      0 0 20px #03e9f4,
+      0 0 25px #03e9f4,
+      0 0 40px #03e9f4;
+}
+
+.menuLinks li a::before {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 0%;
+  background: #03e9f4;
+  opacity: .5;
+  transition: 0s;
+}
+
+.menuLinks li a:focus::before,
+.menuLinks li a:hover::before {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: .5s;
+}
+
+/*  ------------------------------ ADDING CRYSTAL ---------------------- */
+
+.leftSide {
+  background: transparent;
+  grid-row: 6 ;
+  grid-column: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 75px;
+  perspective: 10em;
+  perspective-origin: 50% calc(50% - 5em);
+}
+
+.scene {
+  position: relative;
+  transform-style: preserve-3d;
+  animation: sceneRotate 6s infinite linear;
+}
+
+@keyframes sceneRotate {
+to {
+  transform: rotateY(360deg);
+}
+}
+
+.ball {
+  width: 1em ;
+  height: 1em;
+  border-radius: 50%;
+  background-image: 
+      radial-gradient(
+      circle at top,
+      gold,
+      25%,
+      #000
+      );
+
+  position: absolute;
+  left: -.5em;
+  bottom: .25em;
+  animation: 
+      ballBounce var(--bouncespeed) infinite ease-in-out,
+      sceneRotate 6s infinite linear reverse;
+}
+
+@keyframes ballBounce {
+  0%, 100% {
+      bottom: .7em;
+  }
+  50% {
+      bottom: -.25em; 
+  }
+}
+
+.cube {
+  transform-style: inherit;
+  width: 2em;
+  height: 2em;
+
+  position: absolute;
+  top: -1em;
+  left: -1em;
+}
+
+.front,
+.left,
+.right,
+.back,
+.frontTop,
+.leftTop,
+.rightTop,
+.backTop {
+  width: 2em;
+  height: 2em;
+  position: absolute;
+  background: var(--boxColor);
+  filter:drop-shadow(0px 0px 5px #000);
+}
+
+.front {
+  width: 0em;
+  height: 0em;
+  border-top: 2em solid var(--boxColor);
+  border-right: 1em solid transparent;
+  border-left: 1em solid transparent;
+  border-bottom: 1em solid transparent;
+  background: transparent;
+  transform: 
+      translateZ(.25em)
+      rotateX(-30deg);
+  }
+
+.right {
+  width: 0em;
+  height: 0em;
+  border-top: 2em solid var(--boxColor);
+  border-right: 1em solid transparent;
+  border-left: 1em solid transparent;
+  border-bottom: 1em solid transparent;
+  background: transparent;
+  transform: 
+      rotateY(90deg) 
+      translateZ(.25em)
+      rotateX(-30deg);
+  }
+
+.back {
+  width: 0em;
+  height: 0em;
+  border-top: 2em solid var(--boxColor);
+  border-right: 1em solid transparent;
+  border-left: 1em solid transparent;
+  border-bottom: 1em solid transparent;
+  background: transparent;
+  transform: 
+      rotateY(180deg) 
+      translateZ(.25em)
+      rotateX(-30deg);
+}
+
+.left {
+width: 0em;
+height: 0em;
+border-top: 2em solid var(--boxColor);
+border-right: 1em solid transparent;
+border-left: 1em solid transparent;
+border-bottom: 1em solid transparent;
+background: transparent;
+transform: 
+  rotateY(270deg)
+  translateZ(.25em)
+  rotateX(-30deg);
+}
+
+.frontTop {
+width: 0em;
+height: 0em;
+border-top: 1em solid transparent;
+border-right: 1em solid transparent;
+border-left: 1em solid transparent;
+border-bottom: 2em solid var(--boxColor);
+background: transparent;
+transform: 
+  translateY(-86.5%)
+  translateZ(.25em)
+  rotateX(30deg);
+}
+
+.rightTop {
+  width: 0em;
+  height: 0em;
+  border-top: 1em solid transparent;
+  border-right: 1em solid transparent;
+  border-left: 1em solid transparent;
+  border-bottom: 2em solid var(--boxColor);
+  background: transparent;
+  transform: 
+      translateY(-86.5%)
+      rotateY(90deg)
+      translateZ(.25em)
+      rotateX(30deg);
+}
+
+.backTop {
+  width: 0em;
+  height: 0em;
+  border-top: 1em solid transparent;
+  border-right: 1em solid transparent;
+  border-left: 1em solid transparent;
+  border-bottom: 2em solid var(--boxColor);
+  background: transparent;
+  transform: 
+      translateY(-86.5%)
+      rotateY(180deg)
+      translateZ(.25em)
+      rotateX(30deg);
+
+}
+
+.leftTop {
+  width: 0em;
+  height: 0em;
+  border-top: 1em solid transparent;
+  border-right: 1em solid transparent;
+  border-left: 1em solid transparent;
+  border-bottom: 2em solid var(--boxColor);
+  background: transparent;
+  transform: 
+      translateY(-86.5%)
+      rotateY(270deg)
+      translateZ(.25em)
+      rotateX(30deg);
+}
+
+@media (max-width: 1200px) {
+  nav {
+    grid-column: 1 / 12;
+    place-content: center;
+  }
+  .menuLinks {
+    transform: scale(.8);
+  }
+
+  .logo {
+    transform: 
+      scale(.8);
+  }
+
+  .switch {
+    transform: scale(.8);
+    grid-column: 6;
+  }
+}
+
+@media (max-width: 820px){
+  .menuLinks {
+    transform: scale(.65);
+  }
+
+  .leftSide {
+    grid-column: 3;
+  }
+}
+
+@media (max-width: 700px) {
+  nav {
+    grid-column: 1 / 12;
+    display: flex;
+    align-items: center;
+  }
+  .logo {
+    transform: 
+      scale(.75)
+  }
+}
+
+@media (max-width: 500px) {
+  nav {
+    grid-column: 1 / 12;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+
+  .logo {
+    transform: 
+      scale(.75)
+  }
+
+  .leftSide {
+    grid-column: 6;
+    z-index: 1;
+  }
+
+  menu {
+    place-items: center;
+    grid-column: 1 / 12;
+    z-index: 2;
+  }
+
+  .switch {
+    grid-column: 2;
+    transform: scale(.65);
+  }
+}
+
+@media (max-width: 384px) {
+  nav {
+    grid-column: 1 / 12;
+  }
+
+  .logo {
+    font-size: 3.15rem;
+  }
+  
+  .logo span {
+    font-size: 3.15rem;
+  }
+
+  .switch {
+    transform: scale(.65);
+  }
+
+  .switch::before {
+    padding: .2em .2em;
+  }
+}
